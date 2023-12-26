@@ -1,0 +1,70 @@
+{
+  "manifestVersion": "3.2",
+  "proxies": [
+    {
+      "address": "0x86D7635A74c6e3b8e331ef2f86764d8bC576025C",
+      "txHash": "0xed6b2818eda396957d098dd4cade7488c2e4a2bc5152e53303411262fce8fd99",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xa70Cb02099152A03156824d5659E991a054Cc9fe",
+      "txHash": "0x8ea21a36fdf137aef5a1656a912c946ec12aa2839182300fd1e9c00d4676f780",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9A378D0eCA796D5136a691b26281104534D07349",
+      "txHash": "0x7b8271ba87e6b5b35dd639ae6d27ad8fbe2c7494fe7ad3de16b2a8c788076129",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "cba9f8cf52e3c449631a04ea218a6cedcaf7c366669cfc257c89a008266c768f": {
+      "address": "0xEaB7FB82aae81eb14BcaA4446DCdB8fe4223DcaF",
+      "txHash": "0x085a20fa9f999e503591b4639b2e6df02959684ff4a68e8574c31203c31d9569",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "LogicContractV1",
+            "src": "contracts/LogicContractV1.sol:6"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "c7e8a23064d1bef43162090cc1af8468c94307ac785f86c85f9204580b223ed2": {
+      "address": "0xb93f00369d87228a690B8b1B39424ABb30a7608A",
+      "txHash": "0xf3b880a9d2a2a3a48b8a1c97c557ac86b09be35bf60e4edaa180492cdf508a34",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "value",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint256",
+            "contract": "LogicContractV2",
+            "src": "contracts/LogicContractV2.sol:6"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}
