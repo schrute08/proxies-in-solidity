@@ -2,9 +2,9 @@
 pragma solidity ^0.8.0;
 
 import {Initializable} from "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
-import {VersionAware} from "../VersionAware.sol";
+import {VersionAware} from "./VersionAware.sol";
 
-contract BeaconProxyPatternV1 is Initializable, VersionAware {
+contract LogicContractBeaconV1 is Initializable, VersionAware {
     constructor() {
         _disableInitializers();
     }
@@ -13,7 +13,7 @@ contract BeaconProxyPatternV1 is Initializable, VersionAware {
         versionAwareContractName = "Beacon Proxy Pattern: V1";
     }
     
-    function getContractNameWithVersion() public pure override returns (string memory){
+    function getContractNameWithVersion() public view override returns (string memory){
         return "Beacon Proxy Pattern: V1";
     }
 }
