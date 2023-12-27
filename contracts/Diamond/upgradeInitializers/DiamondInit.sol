@@ -22,7 +22,7 @@ contract DiamondInit {
 
     // You can add parameters to this function in order to pass in 
     // data to set your own state variables
-    function init() external {
+    function initialize() external {
         // adding ERC165 data
         LibDiamond.DiamondStorage storage ds = LibDiamond.diamondStorage();
         ds.supportedInterfaces[type(IERC165).interfaceId] = true;

@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 contract FacetSquareV1 {
@@ -20,19 +19,19 @@ contract FacetSquareV1 {
     }
 
     // Stores a new value in the contract
-    function store(uint256 _newValue) public {
+    function storeValue(uint256 _newValue) public {
         SquareState storage squareState = diamondStorage();
         squareState.value = _newValue;
     }
 
     // Reads the last stored value
-    function retrieve() public view returns (uint256) {
+    function retrieveValue() public view returns (uint256) {
         SquareState storage squareState = diamondStorage();
         return squareState.value;
     }
 
     // returns the square of the _input
-    function square(uint256 _input) public pure returns (uint256) {
+    function squareValue(uint256 _input) public pure returns (uint256) {
         return _input; // implementation error
     }
 }

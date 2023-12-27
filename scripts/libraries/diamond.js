@@ -1,16 +1,56 @@
 /* global ethers */
-
+const { ethers } = require('ethers')
 const FacetCutAction = { Add: 0, Replace: 1, Remove: 2 }
 
 // get function selectors from ABI
 function getSelectors (contract) {
-  const signatures = Object.keys(contract.interface.functions)
-  const selectors = signatures.reduce((acc, val) => {
-    if (val !== 'init(bytes)') {
-      acc.push(contract.interface.getSighash(val))
-    }
-    return acc
-  }, [])
+  // console.log(contract.interface)
+  // const functions = contract.interface.fragments.filter(fragment => fragment.type === 'function');
+  const interface = new ethers.Interface(contract.interface.fragments)
+  const functions = interface.fragments.filter(fragment => fragment.type === 'function')
+  // Get the selectors for the function in the selectors array
+  const selectors = functions.map(func => {
+    return interface.getFunction(func.name).selector
+  })
+  // const signatures = functions.map(func => {
+  //   const inputs = func.inputs.map(input => input.type).join(',');
+  //   const signature = `${func.name}(${inputs})`;
+  //   return signature;
+  // });
+
+  // const selectors = signatures.reduce((acc, val) => {
+  //   if (val !== 'init(bytes)') {
+  //     acc.push(contract.interface.getSighash(val))
+  //   }
+  //   return acc
+  // }, [])
+
+  // console.log(functions)
+
+  // const selectors = functions.map(func => {
+  //   const fragment = contract.interface.getFunction(func.name);
+  //   console.log(fragment.format())
+  //   console.log(ethers.utils.formatBytes32String(fragment.format()))
+  //   console.log(ethers.utils.keccak256(ethers.utils.toUtf8Bytes(fragment.format())))
+  //   const sighash = ethers.utils.hexDataSlice(ethers.utils.keccak256(ethers.utils.toUtf8Bytes(fragment.format())), 0, 4);
+  //   return sighash;
+  // });
+
+  // const signatures = Object.keys(contract.interface.fragments).map(key => {
+  //   const fragment = contract.interface.fragments[key]
+  //   if (fragment.type === 'function') {
+  //     const inputs = fragment.inputs.map(input => input.type).join(',')
+  //     const signature = `${fragment.name}(${inputs})`
+  //     return signature
+  //   }
+  // })
+  // const selectors = signatures.reduce((acc, val) => {
+  //   if (val !== 'init(bytes)') {
+  //     acc.push(contract.interface.getSighash(val))
+  //   }
+  //   return acc
+  // }, [])
+
   selectors.contract = contract
   selectors.remove = remove
   selectors.get = get
